@@ -18,7 +18,7 @@ You can now create your environment and install all the recquirements with::
   $ git clone https://github.com/14thibea/deep_learning_ADNI.git
   $ pip install -r deep_learning_ADNI/recquirements.txt
 
-You also need to install pytorch. Please see `Pytorch installation <https://pytorch.org/>` in order to choose the correct command.
+You also need to install pytorch. Please see `Pytorch installation <https://pytorch.org/>`_ in order to choose the correct command.
 
 Training a network
 ------------------
