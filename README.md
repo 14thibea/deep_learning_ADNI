@@ -1,3 +1,5 @@
+.. highlight:: bash
+
 Before launching this code or one of your own you should create a conda env
 
 Conda environment
