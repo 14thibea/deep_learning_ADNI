@@ -1,0 +1,8 @@
+scipy
+pandas
+nose
+matplotlib
+nibabel
+nilearn
+scikit-learn
+scikit-image
