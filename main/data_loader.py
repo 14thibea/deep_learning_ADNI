@@ -152,17 +152,3 @@ class LeftHippocampusSegmentation(object):
         hippocampus = image[self.x_min:self.x_max:, self.y_min:self.y_max:, self.z_min:self.z_max:]
         return {'image': hippocampus,
                 'diagnosis': sample['diagnosis']}
-
-
-if __name__ == '__main__':
-    import torchvision
-    import matplotlib.pyplot as plt
-
-    subjects_tsv_path = '/Volumes/aramis-projects/elina.thibeausutre/data/AD_subjects.tsv'
-    caps_path = '/Volumes/aramis-projects/CLINICA/CLINICA_datasets/CAPS/CAPS_ADNI'
-    composed = torchvision.transforms.Compose([# MeanNormalization('/Volumes/aramis-projects/elina.thibeausutre/data/mean_brain.nii'),
-                                               LeftHippocampusSegmentation(),
-                                               # ToTensor()
-        ])
-    dataset = MriBrainDataset(subjects_tsv_path, caps_path, transform=composed)
-    dataset.imsave(0, '/Users/elina.thibeausutre/Desktop/figure')

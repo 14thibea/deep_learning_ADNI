@@ -180,8 +180,6 @@ def test(model, dataloader, gpu=False):
     :return: balanced accuracy of the model (float)
     """
 
-    # correct = 0
-    # total = 0
     predicted_list = []
     truth_list = []
 
@@ -196,8 +194,6 @@ def test(model, dataloader, gpu=False):
             _, predicted = torch.max(outputs.data, 1)
             predicted_list = predicted_list + predicted.tolist()
             truth_list = truth_list + diagnoses.tolist()
-            # total += diagnoses.size(0)
-            # correct += (predicted == diagnoses).sum().item()
 
     # Computation of the balanced accuracy
     component = len(np.unique(truth_list))
