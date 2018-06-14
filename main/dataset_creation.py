@@ -1,14 +1,22 @@
 import pandas as pd
-from os import path
+import numpy as np
+from os import path, sep
 
-train_prop = 0.9
 
-diagnosis_labels = ['CN', 'AD']
-cohorts = ['ADNI', 'AIBL', 'OASIS']
-dataset_name = 'complete4'
-data_path = path.join('/Volumes/aramis-projects/elina.thibeausutre/data', dataset_name)
-filename = dataset_name + '_diagnoses.tsv'
-data_df = pd.read_csv(path.join(data_path, filename), sep='\t')
+parser = argparse.ArgumentParser()
+parser.add_argument("tsv_path", type=str,
+                    help='path to your list of subjects in a tsv file')
+parser.add_argument("--t", "train_prop", type=float, default=0.9,
+                    help="proportion of subjects in the training set")
+args = parser.parse_args()
+
+train_prop = args.train_prop
+data_path = sep.join(args.tsv_path.split(sep)[:-1:])
+dataset_name = args.tsv_path.split(sep)[-1].split('.')[0]
+data_df = pd.read_csv(args.tsv_path, sep='\t')
+
+cohorts = np.unique(data_df["cohort"]).tolist()
+diagnosis_labels = np.unique(data_df['diagnosis']).tolist()
 
 train = []
 test = []
