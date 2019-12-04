@@ -1,5 +1,7 @@
 .. highlight:: bash
 
+For a more up-to-date repo on the same subject please look at `AD-DL repo<https://github.com/aramis-lab/AD-DL>`.
+
 Before launching this code or one of your own you should create a conda env
 
 Conda environment
